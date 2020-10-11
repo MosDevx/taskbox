@@ -28,6 +28,22 @@ function taskStateReducer(taskState){
 		}
 	}
 }
+function togglePinReducer(state,action){
+		return {
+			...state,
+			tasks: state.tasks.map(task => {
+				if(task.id === action.id){
+					let newTaskState = task.state === 'TASK_INBOX' ? 'TASK_PINNED' : 'TASK_INBOX'
+					return {...task, state:newTaskState}
+				}
+				else{
+					return	task}
+			}
+			),
+		
+	}
+	
+}
 
 export const reducer = (state,action) =>{
 	switch (action.type){
@@ -35,8 +51,14 @@ export const reducer = (state,action) =>{
 			return taskStateReducer('TASK_ARCHIVED')(state,action);
 		
 		case actions.PIN_TASK:
-			return taskStateReducer('TASK_PINNED')(state,action);
-		
+			// let task = state.tasks.find(task => task.id === action.id);
+			// if (task.state === 'TASK_INBOX')
+			// 	return taskStateReducer('TASK_PINNED')(state,action);
+			// else
+			// 	return taskStateReducer('TASK_INBOX')(state,action);
+
+			return togglePinReducer(state,action);
+
 		default:
 			return state;
 	}
