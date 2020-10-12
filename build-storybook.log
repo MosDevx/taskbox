@@ -1,0 +1,9 @@
+info @storybook/react v6.0.26
+info 
+info clean outputDir..
+info => Copying static files from: public
+info => Copying prebuild dll's..
+info => Building manager..
+info => Loading manager config..
+info => Loading presets
+info => Compiling manager..
