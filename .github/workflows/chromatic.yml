@@ -14,6 +14,6 @@ jobs:
       - run: yarn
       - uses: chromaui/action@v1
       with:
-        projectToken: ${{secrets.CHROMATIC_PROJECT_TOKEN}}
+        projectToken: fj7xzty8v5s
         token: ${{secrets.GITHUB_TOKEN}}
 
